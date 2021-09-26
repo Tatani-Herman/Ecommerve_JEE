@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <f:view>
+<head>
+	<title>Creation de compte</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="resources2/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources2/vendor/bootstrap/css/bootstrap.min.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources2/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources2/vendor/animate/animate.css"/>
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="resources2/vendor/css-hamburgers/hamburgers.min.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources2/vendor/select2/select2.min.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources2/css/util.css" />
+	<link rel="stylesheet" type="text/css" href="resources2/css/main.css"/>
+<!--===============================================================================================-->
+</head>
+<body>
+	
+					
+	<div class="limiter">
+		<div class="container-login100">
+
+			<div class="wrap-login100">
+<span class="login100-form-title">
+<font color="blue">Bienvenue sur ENSAT-COMMERCE</font>
+</span>
+				<div class="login100-pic js-tilt">
+					<img src="resources2/images/image.png" alt="IMG"/>
+				</div>
+
+				<h:form styleClass="login100-form validate-form">
+					<span class="login100-form-title">
+						S'enregistrer
+					</span>
+                                 
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<h:inputText id="id" class="input100" a:placeholder="ID"  value="#{userMB.id}"/>
+   
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid name is required">
+						<h:inputText id="login" class="input100" a:placeholder="Nom"  value="#{userMB.name}"/>
+                                            
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<h:inputSecret id="password" a:placeholder="mot de passe" class="input100" value="#{userMB.password}"/>
+                                            
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<h:commandButton action="#{userMB.registerAction}" value="Creer son compte" class="login100-form-btn"/>
+                                           
+                                            
+					</div>
+
+					
+				</h:form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="resources2/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources2/vendor/bootstrap/js/popper.js"></script>
+	<script src="resources2/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources2/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources2/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="resources2/js/main.js"></script>
+
+</body>
+        
+        
+        </f:view>
+</html>

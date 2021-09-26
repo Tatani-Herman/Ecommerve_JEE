@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 11, 2021 12:35:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Produits" table="PRODUITS" schema="STEPHANE" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="string">
+            <column name="NOM" />
+        </property>
+        <property name="idCategorie" type="java.lang.Integer">
+            <column name="ID_CATEGORIE" />
+        </property>
+        <property name="qteDisponible" type="java.lang.Integer">
+            <column name="QTE_DISPONIBLE" />
+        </property>
+        <property name="prix" type="java.lang.Integer">
+            <column name="PRIX" />
+        </property>
+        <property name="imgLink" type="string">
+            <column name="IMG_LINK" />
+        </property>
+    </class>
+</hibernate-mapping>

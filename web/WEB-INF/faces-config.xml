@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+
+-->
+<faces-config version="2.3"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
+
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+        <navigation-case> 
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index2.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case> 
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+        <from-view-id>/register.xhtml</from-view-id>
+        <navigation-case> 
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index2.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case> 
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/register.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <navigation-rule>
+        <from-view-id>/index2.xhtml</from-view-id>
+        <navigation-case> 
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index2.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case> 
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/index2.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <managed-bean>
+        <managed-bean-name>userBean</managed-bean-name>
+        <managed-bean-class>entities.UsersBean</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <managed-bean-name>produitBean</managed-bean-name>
+        <managed-bean-class>entities.ProduitsBean</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <managed-bean-name>commandeBean</managed-bean-name>
+        <managed-bean-class>entities.CommandesBean</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <managed-bean-name>categorieBean</managed-bean-name>
+        <managed-bean-class>entities.CategorieBean</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+         <managed-bean>
+        <managed-bean-name>produitMB</managed-bean-name>
+        <managed-bean-class>entities.ProduitMB</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+        
+        <managed-bean>
+        <managed-bean-name>CommandeMB</managed-bean-name>
+        <managed-bean-class>entities.CommandeMB</managed-bean-class>
+    
+        <managed-bean-scope>session</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <managed-bean-name>categorieMB</managed-bean-name>
+        <managed-bean-class>entities.CategorieMB</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>userMB</managed-bean-name>
+        <managed-bean-class>entities.UserMB</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+</faces-config>

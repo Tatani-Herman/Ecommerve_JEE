@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"          
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="author" content="Ecommerce"/>
+        <title>ENSA - COMMERCE</title>
+
+        <link rel="shortcut icon" href="resources/images/favicon.png"/>
+        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/fonts/line-icons/line-icons.css" type="text/css"/>
+
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputStylesheet name="css/theme.css" />
+        <h:outputStylesheet name="css/component.css" />
+        <h:outputStylesheet name="css/settings.css" />
+        <h:outputStylesheet name="css/responsive.css" />
+        <h:outputStylesheet name="css/theme.css" />
+        <h:outputStylesheet name="css/colors/blue.css" />
+    </h:head>
+    <h:body>
+
+        <div class="header">
+
+
+            <nav class="navbar navbar-default affix" data-spy="affix" data-offset-top="50">
+                <div class="container">
+                    <div class="row">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="index2.xhtml">
+                                <h:graphicImage name="image.png" library="images"/>
+                            </a>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse">
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a class="active" href="index2.xhtml">Page d'Accueil</a>
+                                </li>
+                                <li class="drop">
+                                    <a href="allproduct.xhtml">Catégories<span class="caret"></span></a>
+                                    <div class="dropdown mega-menu megamenu2">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-12">
+                                                <ul class="menulinks">
+                                                    <li class="maga-menu-title">
+                                                        <a href="#">Catégories</a>
+                                                    </li>
+                                                     <h:form>
+                                                      <c:forEach var="categorie" items="#{categorieMB.myCategorie}">
+                                                        
+                                                          <li>
+                                                               <p:commandLink action="#{categorieMB.viewProducts(categorie)}" styleClass="btn-cart" ajax="false">
+                                                                 #{categorie.intitule}
+                                                                </p:commandLink>
+                                                          </li>
+                                                      </c:forEach>
+                                                          </h:form>
+                                 
+                                                </ul>
+                                            </div>
+   
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="#">A propos</a></li>
+                               
+                                <li>
+
+                                    <div class="shop-cart">
+                                        <ul>
+                                            <li>
+                                                <a href="cart.xhtml" class="cart-icon cart-btn">
+                                                    <i class="icon-basket"></i>
+                                                   
+                                                </a>
+
+                                              
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Affichage du Panier</h1>
+                <hr class="lines"/>
+            <c:if test="#{CommandeMB.etat}">                         
+        <div>
+            <h4><font color="green">VOTRE COMMANDE A ETE ENREGISTREE AVEC SUCCESS </font></h4>
+        </div>
+         </c:if>
+                <div class="row">
+
+                    <h:form id="form">
+                        <p:dataTable var="lineCommande" value="#{CommandeMB.cart}" rows="10">
+                            <f:facet name="header">
+                                <h:outputLabel value="Votre Carte" />
+                            </f:facet>
+
+                            <p:column headerText="Nom du Produit">
+                                <p:outputLabel value="#{lineCommande.prod.nom}" />
+                            </p:column>
+
+                            <p:column headerText="Quantité">
+                                <p:inputText value="#{lineCommande.qte}" style="width: 20px" />
+                            </p:column>
+
+                            <p:column headerText="Prix">
+                                <p:outputLabel value="#{lineCommande.prod.prix}" />
+                            </p:column>
+
+                            <p:column headerText="Image">
+                                <h:graphicImage name="#{lineCommande.prod.imgLink}" library="images" width="120" height="100" />
+                            </p:column>
+
+                            <p:column headerText="Supprimer">
+                                <h:commandButton value="Delete" action="#{CommandeMB.removeCart(cart)}" styleClass="btn-remove"/>
+                            </p:column>
+
+                            <f:facet name="footer">
+                                Total : <h:outputLabel value="#{CommandeMB.total}" />
+                            </f:facet>
+                        </p:dataTable>
+                        
+                        <div style="margin-top: 25px;">               
+                          
+                            
+                            <h:outputLink value="index2.xhtml" styleClass="btn btn-border-2" style="margin: 0 5px">Continue Shopping</h:outputLink>
+                        
+                            <p:commandLink value="Enregistrer la commande" action="#{CommandeMB.processCart()}" ajax="false" styleClass="btn btn-common">
+                     
+                             </p:commandLink>
+                            
+  
+                        </div>
+                    </h:form>
+
+                </div>
+            </div>
+        </section>
+
+         <div id="copyright">
+            <div class="container">
+                <div class="row">
+                    <b><div class="col-md-12 col-sm-12 col-xs-12">
+                        <p>Tous droits reservés © 2021 - ENSAT Tanger; Developé par TOLLY Stephane et NGAN Joseph</p>
+                        </div></b>
+                   
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="back-to-top">
+            <i class="icon-arrow-up"></i>
+        </a>
+
+        <div class="md-overlay"></div>
+
+        <div id="loader">
+            <div class="sk-folding-cube">
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+            </div>
+        </div>
+
+        <h:outputScript name="js/bootstrap.min.js" />
+        <h:outputScript name="js/main.js" />
+    </h:body>
+</html>
